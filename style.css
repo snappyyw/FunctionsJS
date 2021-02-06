@@ -1,0 +1,26 @@
+*,
+*:before,
+*:after {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+}
+@keyframes main-rotate {
+  100% {
+    transform: rotateY(360deg) rotateX(360deg) rotate(360deg);
+  }
+}
+
+.container {
+  background: url(./img/background.png) no-repeat;
+  background-size: cover;
+  width: 199vh;
+  height: 100vh;
+}
+.logo {
+  transform-style: preserve-3d;
+  animation: main-rotate 5s infinite linear;
+  position: absolute;
+  top: 90px;
+  left: 670px;
+}
