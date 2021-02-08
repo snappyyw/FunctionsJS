@@ -1,22 +1,22 @@
 //                                                                             Задачи №1          //
-function Factorial(num) {
-    return num ? num * Factorial(num-1):1;
+function factorial(num) {
+    return num ? num * factorial(num-1):1;
 }
 
 
-function LongestWord(str) {
+function longestWord(str) {
     str = str.split(" ")
     let word=""
     for(let i=0;i<str.length;i++){
         if(str[i].length>word.length){
-            word=str[i]
+            word=str[i];
         }
     }
     return word;
 }
 
 
-function LongestArray(arr) {
+function longestArray(arr) {
     let arrMaxNumber=0;
     let temporaryNumber=0;
     let arrIndex="";
@@ -35,7 +35,7 @@ function LongestArray(arr) {
 }
 
 
-function StringReduction(str, num) {
+function stringReduction(str, num) {
     let res="";
     if(str.length>num){
         for(let i=0;i<num;i++){
@@ -49,7 +49,7 @@ function StringReduction(str, num) {
 }
 
 
-function WordCapitalLetter(str) {
+function wordCapitalLetter(str) {
     str=str.split(" ");
     for(let i=0;i<str.length;i++){
         str[i]=str[i][0].toUpperCase()+str[i].substr(1);
@@ -58,14 +58,14 @@ function WordCapitalLetter(str) {
 }
 
 
-function ConnectingArrays(secondaryArr,mainArr,num) {
+function connectingArrays(secondaryArr,mainArr,num) {
     let newArr=mainArr.slice();
     newArr.splice(num,0,...secondaryArr);
     return newArr;
 }
 
 
-function DeletingFalseValues(arr) {
+function deletingFalseValues(arr) {
     for(let i=0;i<arr.length;i++){
         if(arr[i]==false||arr[i]===undefined||arr[i]===null||Number.isNaN(arr[i])){
             delete arr[i];
@@ -75,7 +75,7 @@ function DeletingFalseValues(arr) {
 }
 
 
-function SearchLettersString(arr) {
+function searchLettersString(arr) {
     for(let i=0;i<arr[1].length;i++){
         if(!arr[0].includes(arr[1][i])){
             return false;
@@ -85,7 +85,7 @@ function SearchLettersString(arr) {
 }
 
 
-function SplittingArray(arr,num) {
+function splittingArray(arr,num) {
     let newArr=[];
     while (arr.length > 0) { 
         newArr.push(arr.splice(0, num)); 
@@ -94,10 +94,10 @@ function SplittingArray(arr,num) {
 }
 
 
-function CountingWithRecursion(arr,num) {
+function countingWithRecursion(arr,num) {
     if(num!==0){
         arr.push(num);
-        CountingWithRecursion(arr,--num);
+        countingWithRecursion(arr,--num);
     }
     else{
         return arr;
@@ -105,4 +105,8 @@ function CountingWithRecursion(arr,num) {
 
 }
 
-//                                                                             Задачи №2          //
+//                                                                                Задачи №2          //
+
+function myMap(func,arr) {
+    
+}
