@@ -95,5 +95,14 @@ function SplittingArray(arr,num) {
 
 
 function CountingWithRecursion(arr,num) {
-    
+    if(num!==0){
+        arr.push(num);
+        CountingWithRecursion(arr,--num);
+    }
+    else{
+        return arr;
+    }
+
 }
+
+//                                                                             Задачи №2          //
