@@ -1,22 +1,22 @@
 //                                                                             Задачи №1          //
-function factorial(num) {
+module.exports.factorial =  function factorial(num) {
     return num ? num * factorial(num-1):1;
 }
 
 
-function longestWord(str) {
+module.exports.longestWord = function longestWord(str) {
     str = str.split(" ")
-    let word=""
+    let word=0;
     for(let i=0;i<str.length;i++){
-        if(str[i].length>word.length){
-            word=str[i];
+        if(str[i].length>word){
+            word=str[i].length;
         }
     }
     return word;
 }
 
 
-function longestArray(arr) {
+module.exports.longestArray = function longestArray(arr) {
     let arrMaxNumber=0;
     let temporaryNumber=0;
     let arrIndex="";
@@ -35,7 +35,7 @@ function longestArray(arr) {
 }
 
 
-function stringReduction(str, num) {
+module.exports.stringReduction = function stringReduction(str, num) {
     let res="";
     if(str.length>num){
         for(let i=0;i<num;i++){
@@ -49,7 +49,7 @@ function stringReduction(str, num) {
 }
 
 
-function wordCapitalLetter(str) {
+module.exports.wordCapitalLetter = function wordCapitalLetter(str) {
     str=str.split(" ");
     for(let i=0;i<str.length;i++){
         str[i]=str[i][0].toUpperCase()+str[i].substr(1);
@@ -58,14 +58,14 @@ function wordCapitalLetter(str) {
 }
 
 
-function connectingArrays(secondaryArr,mainArr,num) {
+module.exports.connectingArrays = function connectingArrays(secondaryArr,mainArr,num) {
     let newArr=mainArr.slice();
     newArr.splice(num,0,...secondaryArr);
     return newArr;
 }
 
 
-function deletingFalseValues(arr) {
+module.exports.deletingFalseValues = function deletingFalseValues(arr) {
     for(let i=0;i<arr.length;i++){
         if(arr[i]==false||arr[i]===undefined||arr[i]===null||Number.isNaN(arr[i])){
             delete arr[i];
@@ -75,7 +75,7 @@ function deletingFalseValues(arr) {
 }
 
 
-function searchLettersString(arr) {
+module.exports.searchLettersString = function searchLettersString(arr) {
     for(let i=0;i<arr[1].length;i++){
         if(!arr[0].includes(arr[1][i])){
             return false;
@@ -85,7 +85,7 @@ function searchLettersString(arr) {
 }
 
 
-function splittingArray(arr,num) {
+module.exports.splittingArray = function splittingArray(arr,num) {
     let newArr=[];
     while (arr.length > 0) { 
         newArr.push(arr.splice(0, num)); 
@@ -94,7 +94,7 @@ function splittingArray(arr,num) {
 }
 
 
-function countingWithRecursion(arr,num) {
+module.exports.countingWithRecursion = function countingWithRecursion(arr,num) {
     if(num!==0){
         arr.push(num);
         countingWithRecursion(arr,--num);
