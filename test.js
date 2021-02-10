@@ -219,3 +219,58 @@ it("Тестирование myFilter", function () {
     )
   }
 })
+
+
+it("Тестирование myFind", function () {
+  let expectedResult = 41;
+  let result = operations.myFind((a)=>a>3,[2,2,2,41,5]);
+  if (expectedResult !== result) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = undefined;
+  result = operations.myFind((a)=>a>10,["qeqw",5,3,2,"eqwewq"]);
+  if (JSON.stringify(expectedResult) != JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+it("Тестирование mySome", function () {
+  let expectedResult = true;
+  let result = operations.mySome((a)=>a>3,["qew","qweqwe",5]);
+  if (expectedResult !== result) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = false;
+  result = operations.mySome((a)=>a>10,["qeqw",5,3,2,"eqwewq"]);
+  if (JSON.stringify(expectedResult) != JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+it("Тестирование myEvery", function () {
+  let expectedResult = true;
+  let result = operations.myEvery((a)=>a>=3,[50,500,10]);
+  if (expectedResult !== result) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = false;
+  result = operations.myEvery((a)=>a>10,["qeqw",500,3,2,"eqwewq"]);
+  if (JSON.stringify(expectedResult) != JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+

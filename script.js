@@ -143,16 +143,31 @@ module.exports.myFilter = function myFilter(func,arr) {
 }
 
 
-function myFind(func,arr){
-
+module.exports.myFind = function myFind(func,arr){
+    for(let i=0;i<arr.length;i++){
+        if(func.call(this,arr[i])){
+            return arr[i];
+        }
+    }
+    return undefined;
 }
 
 
-function mySome(func,arr){
-    
+module.exports.mySome = function mySome(func,arr){
+    for(let i=0;i<arr.length;i++){
+        if(func.call(this,arr[i])){
+            return true;
+        }
+    }
+    return false;
 }
 
 
-function myEvery(func,arr){
-    
+module.exports.myEvery = function myEvery(func,arr){
+    for(let i=0;i<arr.length;i++){
+        if(!func.call(this,arr[i])){
+            return false;
+        }
+    }
+    return true;
 }
