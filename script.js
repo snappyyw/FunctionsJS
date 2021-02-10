@@ -105,8 +105,54 @@ module.exports.countingWithRecursion = function countingWithRecursion(arr,num) {
 
 }
 
-//                                                                                Задачи №2          //
+//                                                                                 ДЗ               //
 
-function myMap(func,arr) {
+module.exports.sumNumber = function  sumNumber(argFrist) {
+    let sum=argFrist;
+    function  suma(argSecond) {
+        return sumNumber(argFrist+argSecond);
+    };
+    suma.toString=suma.valueOf=function (){
+        return sum;
+    };
+    return sum;
+}
+
+
+
+
+//                                                                                Задачи №2          //
+    
+module.exports.myMap = function myMap(func,arr) {
+    let res=[];
+    for(let i=0;i<arr.length;i++){
+        res.push(func.call(this,arr[i]));
+    }
+   return res;
+};
+
+
+module.exports.myFilter = function myFilter(func,arr) {
+    let res=[]
+    for(let i=0;i<arr.length;i++){
+        if(func.call(this,arr[i])){
+            res.push(arr[i])
+        }
+    }
+    return res;
+}
+
+
+function myFind(func,arr){
+
+}
+
+
+function mySome(func,arr){
+    
+}
+
+
+function myEvery(func,arr){
     
 }
