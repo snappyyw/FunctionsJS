@@ -223,4 +223,38 @@ function searchObjects(arr, obj) {
 module.exports.spinalCase = function spinalCase(str) {
     let newStr = str.replace(/(?!^)([A-Z])/g, ' $1').replace(/[_\s]+(?=[a-zA-Z])/g, '-').toLowerCase();
     return newStr;
-  }
+}
+
+
+module.exports.replacementOfWord = function replacementOfWord(str, secondaryWord, mainWord) {
+    let newStr=str.split(" ");
+    for(let i=0;i<newStr.length;i++){
+        if(newStr[i].toLowerCase()==secondaryWord.toLowerCase()){
+            if(newStr[i][0].toUpperCase()==newStr[i][0]){
+                mainWord=mainWord[0].toUpperCase()+mainWord.substr(1);
+                newStr[i]=mainWord;
+            }
+            else{
+                newStr[i]=mainWord;
+            }
+        }
+    }
+    return newStr.join(" ");
+}
+
+
+function searchForLetters(str) {
+    let lettersArr=str.split("").sort();
+    let i=0,n=0;
+    for(i;i<lettersArr.length;i++){
+        lettersArr[i]=lettersArr[i].charCodeAt()-36;
+    }
+    for(let i=0;i<lettersArr.length;i++){
+        if(lettersArr[i]!==undefined){
+            if(lettersArr[i]!==lettersArr[i+1]-1){
+                lettersArr.splice(lettersArr.indexOf(lettersArr[i+1]),0,lettersArr[i]+1)
+            }
+        }
+    }
+    return lettersArr;
+}

@@ -367,3 +367,21 @@ it("Тестирование spinalCase", function () {
     )
   }
 })
+
+
+it("Тестирование replacementOfWord", function () {
+  let expectedResult = "QEWQEQE 123";
+  let result = operations.replacementOfWord("QEWQEQE dsasd","dsasd","123");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = "adasd Qwe";
+  result = operations.replacementOfWord("adasd Abc","abc","qwe");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
