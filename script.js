@@ -58,7 +58,7 @@ module.exports.wordCapitalLetter = function wordCapitalLetter(str) {
 }
 
 
-module.exports.connectingArrays = function connectingArrays(secondaryArr,mainArr,num) {
+module.exports.connectingArrays = function connectingArrays(secondaryArr, mainArr, num) {
     let newArr=mainArr.slice();
     newArr.splice(num,0,...secondaryArr);
     return newArr;
@@ -85,7 +85,7 @@ module.exports.searchLettersString = function searchLettersString(arr) {
 }
 
 
-module.exports.splittingArray = function splittingArray(arr,num) {
+module.exports.splittingArray = function splittingArray(arr, num) {
     let newArr=[];
     while (arr.length > 0) { 
         newArr.push(arr.splice(0, num)); 
@@ -94,7 +94,7 @@ module.exports.splittingArray = function splittingArray(arr,num) {
 }
 
 
-module.exports.countingWithRecursion = function countingWithRecursion(arr,num) {
+module.exports.countingWithRecursion = function countingWithRecursion(arr, num) {
     if(num!==0){
         arr.push(num);
         countingWithRecursion(arr,--num);
@@ -105,7 +105,9 @@ module.exports.countingWithRecursion = function countingWithRecursion(arr,num) {
 
 }
 
+
 //                                                                                 ДЗ               //
+
 
 module.exports.sumNumber = function  sumNumber(argFrist) {
     let sum=argFrist;
@@ -119,11 +121,10 @@ module.exports.sumNumber = function  sumNumber(argFrist) {
 }
 
 
-
-
 //                                                                                Задачи №2          //
     
-module.exports.myMap = function myMap(func,arr) {
+
+module.exports.myMap = function myMap(func, arr) {
     let res=[];
     for(let i=0;i<arr.length;i++){
         res.push(func.call(this,arr[i]));
@@ -132,7 +133,7 @@ module.exports.myMap = function myMap(func,arr) {
 };
 
 
-module.exports.myFilter = function myFilter(func,arr) {
+module.exports.myFilter = function myFilter(func, arr) {
     let res=[]
     for(let i=0;i<arr.length;i++){
         if(func.call(this,arr[i])){
@@ -143,7 +144,7 @@ module.exports.myFilter = function myFilter(func,arr) {
 }
 
 
-module.exports.myFind = function myFind(func,arr){
+module.exports.myFind = function myFind(func, arr){
     for(let i=0;i<arr.length;i++){
         if(func.call(this,arr[i])){
             return arr[i];
@@ -153,7 +154,7 @@ module.exports.myFind = function myFind(func,arr){
 }
 
 
-module.exports.mySome = function mySome(func,arr){
+module.exports.mySome = function mySome(func, arr){
     for(let i=0;i<arr.length;i++){
         if(func.call(this,arr[i])){
             return true;
@@ -163,7 +164,7 @@ module.exports.mySome = function mySome(func,arr){
 }
 
 
-module.exports.myEvery = function myEvery(func,arr){
+module.exports.myEvery = function myEvery(func, arr){
     for(let i=0;i<arr.length;i++){
         if(!func.call(this,arr[i])){
             return false;
@@ -171,3 +172,55 @@ module.exports.myEvery = function myEvery(func,arr){
     }
     return true;
 }
+
+
+//                                                                                Задачи №3          //
+
+
+module.exports.sumAll = function sumAll(arr) {
+    let max,min,sum=0;
+    if(arr[0]>arr[1]){
+        max=arr[0];
+        min=arr[1];
+    }
+    else{
+        max=arr[1];
+        min=arr[0];
+    };
+    for(min;min<=max;min++){
+        sum+=min;
+    };
+    return sum;
+}
+
+
+module.exports.specialArray = function specialArray(firstArray, secondArray) {
+    let newArray=firstArray.filter((a)=>!secondArray.includes(a));
+    let tempArray=secondArray.filter((a)=>!firstArray.includes(a));
+    return newArray.concat(tempArray);
+}
+
+
+module.exports.deletingFromArray = function deletingFromArray(arr, ...arg) {
+    for(let i=0;i<arg.length;i++){
+        for(let j=0;j<arr.length;j++){
+            if(arg[i]===arr[j]){
+                delete arr[j]
+            }
+        }
+    }
+    return arr
+}
+
+ 
+function searchObjects(arr, obj) {
+    let newArr=[];
+       
+    return newArr;
+}
+
+
+module.exports.spinalCase = function spinalCase(str) {
+    let newStr = str.replace(/(?!^)([A-Z])/g, ' $1').replace(/[_\s]+(?=[a-zA-Z])/g, '-').toLowerCase();
+    return newStr;
+  }

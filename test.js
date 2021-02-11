@@ -274,3 +274,96 @@ it("Тестирование myEvery", function () {
   }
 })
 
+
+//                                                                Тестирование задач №2 //
+
+
+
+it("Тестирование sumAll", function () {
+  let expectedResult = 10;
+  let result = operations.sumAll([4,1]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = 0;
+  result = operations.sumAll([]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+it("Тестирование specialArray", function () {
+  let expectedResult = [6,8];
+  let result = operations.specialArray([1,2,3,4,5,6],[1,3,4,5,2,8]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = [];
+  result = operations.specialArray([1,2,3],[1,2,3]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+it("Тестирование deletingFromArray", function () {
+  let expectedResult = [1,,,4,5,6];
+  let result = operations.deletingFromArray([1,2,3,4,5,6],2,3);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = [1,,,,];
+  result = operations.deletingFromArray([1,2,3,"qwe"],2,"qwe",3);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+// it("Тестирование ", function () {
+//   let expectedResult = [1,,,4,5,6];
+//   let result = operations.([1,2,3,4,5,6],2,3);
+//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+//     throw new Error(
+//       `Ожидалось ${expectedResult}, получилось ${result}`
+//     )
+//   }
+//   expectedResult = [1,,,,];
+//   result = operations.([1,2,3,"qwe"],2,"qwe",3);
+//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+//     throw new Error(
+//       `Ожидалось ${expectedResult}, получилось ${result}`
+//     )
+//   }
+// })
+
+
+it("Тестирование spinalCase", function () {
+  let expectedResult = "q-e-w-q-e-q-e-dsasd-fs-df-fasf-s";
+  let result = operations.spinalCase("QEWQEQE dsasd fs df-fasf s");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = "dadsa-wqe-eqwe-afa";
+  result = operations.spinalCase("dadsaWqe Eqwe afa");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
