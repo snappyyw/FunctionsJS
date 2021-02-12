@@ -205,11 +205,11 @@ module.exports.deletingFromArray = function deletingFromArray(arr, ...arg) {
     for(let i=0;i<arg.length;i++){
         for(let j=0;j<arr.length;j++){
             if(arg[i]===arr[j]){
-                delete arr[j]
+                delete arr[j];
             }
         }
     }
-    return arr
+    return arr;
 }
 
  
@@ -245,16 +245,96 @@ module.exports.replacementOfWord = function replacementOfWord(str, secondaryWord
 
 function searchForLetters(str) {
     let lettersArr=str.split("").sort();
-    let i=0,n=0;
-    for(i;i<lettersArr.length;i++){
+    let newArr=[];
+    for(let i=0;i<lettersArr.length;i++){
         lettersArr[i]=lettersArr[i].charCodeAt()-36;
     }
-    for(let i=0;i<lettersArr.length;i++){
-        if(lettersArr[i]!==undefined){
+    let end=lettersArr[lettersArr.length-1];
+    for(let i=0;i<end;i++){
+        if(lettersArr[i]==end){
+            break;
+        }
+        else{
             if(lettersArr[i]!==lettersArr[i+1]-1){
-                lettersArr.splice(lettersArr.indexOf(lettersArr[i+1]),0,lettersArr[i]+1)
+                let index=lettersArr.indexOf(lettersArr[i]);
+                let arg=lettersArr[i]+1;
+                lettersArr.splice(index+1,0,arg);
+                newArr.push(arg);
             }
         }
     }
-    return lettersArr;
+    return newArr;
+}
+
+
+module.exports.replacementSpecialCharacters = function replacementSpecialCharacters(str) {
+    let newStr=str.split("");
+    for(let i=0;i<newStr.length;i++){
+        if(newStr[i]=="&"){
+            newStr[i]="&amp";
+        }
+        else if(newStr[i]=="<"){
+            newStr[i]="&lt";
+        }
+        else if(newStr[i]==">"){
+            newStr[i]="&gt";
+        }
+        else if(newStr[i]=='"'){
+            newStr[i]="&quot";
+        }
+        else if(newStr[i]=="'"){
+            newStr[i]="&apos";
+        }
+    }
+    return newStr.join("");
+}
+
+
+module.exports.summationOfPrimes = function summationOfPrimes(num) {
+    let arrNum=[];
+    nextPrime:
+    for (let i = 2; i <= num; i++) {
+        for (let j = 2; j < i; j++) { 
+          if (i % j == 0) continue nextPrime; 
+        }
+        arrNum.push(i);
+    }
+    return arrNum.map(i=>x+=i, x=0).reverse()[0]
+}
+
+
+module.exports.deleteArr = function deleteArr(arr, fun) {
+    for(let i=0;i<arr.length;i++){
+        if(!fun(arr[i])){
+            delete arr[i];
+        }
+        else {
+            break;
+        }
+    }
+    return arr;
+}
+
+
+module.exports.removingNesting = function removingNesting(arr,newArr=[]) {
+    for (let elem of arr) {
+		if (typeof elem == 'object') {
+			removingNesting(elem,newArr);
+		} else {
+            newArr.push(elem);
+		}
+	}
+    return newArr;
+}
+
+
+module.exports.sumArg = function sumArg(numA,numB) {
+    if(numB==undefined){
+        return function (numB) {
+            return numA+numB;
+        }
+    }
+    else{
+        return numB+numA;
+    }
 }
