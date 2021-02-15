@@ -213,9 +213,16 @@ module.exports.deletingFromArray = function deletingFromArray(arr, ...arg) {
 }
 
  
-function searchObjects(arr, obj) {
-    let newArr=[];
-       
+module.exports.searchObjects = function searchObjects(arr, obj) {
+    let newArr=arr.slice();
+    for(let i = 0; i < newArr.length; i++){
+        for(let key in obj){
+            if (typeof newArr[i][key] == "undefined") {
+                newArr.splice(i, 1);
+                break;
+            }
+        }
+    }
     return newArr;
 }
 
@@ -243,7 +250,7 @@ module.exports.replacementOfWord = function replacementOfWord(str, secondaryWord
 }
 
 
-function searchForLetters(str) {
+module.exports.searchForLetters = function searchForLetters(str) {
     let lettersArr=str.split("").sort();
     let newArr=[];
     for(let i=0;i<lettersArr.length;i++){
@@ -260,6 +267,19 @@ function searchForLetters(str) {
                 let arg=lettersArr[i]+1;
                 lettersArr.splice(index+1,0,arg);
                 newArr.push(arg);
+            }
+        }
+    }
+    return newArr;
+}
+
+
+module.exports.uniqueArray = function uniqueArray(...arr) {
+    let newArr=[];
+    for(let i=0;i<arr.length;i++){
+        for(let j=0;j<arr[i].length;j++){
+            if(!newArr.includes(arr[i][j])){
+                newArr.push(arr[i][j])
             }
         }
     }

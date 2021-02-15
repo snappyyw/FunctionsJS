@@ -333,22 +333,15 @@ it("Тестирование deletingFromArray", function () {
 })
 
 
-// it("Тестирование ", function () {
-//   let expectedResult = [1,,,4,5,6];
-//   let result = operations.([1,2,3,4,5,6],2,3);
-//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
-//     throw new Error(
-//       `Ожидалось ${expectedResult}, получилось ${result}`
-//     )
-//   }
-//   expectedResult = [1,,,,];
-//   result = operations.([1,2,3,"qwe"],2,"qwe",3);
-//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
-//     throw new Error(
-//       `Ожидалось ${expectedResult}, получилось ${result}`
-//     )
-//   }
-// })
+it("Тестирование searchObjects", function () {
+  let expectedResult = [{"apple":1,"bat":2},{"apple":1,"bat":2,"cookie":2}];
+  let result = operations.searchObjects([{ "apple": 1, "bat": 2 }, { "apple": 1 },{ "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${JSON.stringify(expectedResult)}, получилось ${JSON.stringify(result)}`
+    )
+  }
+})
 
 
 it("Тестирование spinalCase", function () {
@@ -387,22 +380,40 @@ it("Тестирование replacementOfWord", function () {
 })
 
 
-// it("Тестирование ", function () {
-//   let expectedResult = "QEWQEQE 123";
-//   let result = operations.("QEWQEQE dsasd","dsasd","123");
-//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
-//     throw new Error(
-//       `Ожидалось ${expectedResult}, получилось ${result}`
-//     )
-//   }
-//   expectedResult = "adasd Qwe";
-//   result = operations.("adasd Abc","abc","qwe");
-//   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
-//     throw new Error(
-//       `Ожидалось ${expectedResult}, получилось ${result}`
-//     )
-//   }
-// })
+it("Тестирование searchForLetters", function () {
+  let expectedResult = [64,65];
+  let result = operations.searchForLetters("abcf");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = [62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85];
+  result = operations.searchForLetters("az");
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
+
+
+it("Тестирование uniqueArray", function () {
+  let expectedResult = ['qweqwe','wewqeq',3,1,34];
+  let result = operations.uniqueArray(['qweqwe'],['wewqeq',3,1],[34],[34]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = [31,30,5,1];
+  result = operations.uniqueArray([31],[30,5],[30],[5],[1]);
+  if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+})
 
 
 it("Тестирование replacementSpecialCharacters", function () {
