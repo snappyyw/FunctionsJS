@@ -4,6 +4,7 @@ var operations = require('./script')
 it("Тестирование factorial", function () {
   let expectedResult = 24
   let result = operations.factorial(4)
+
   if (result !== expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -29,6 +30,7 @@ it("Тестирование factorial", function () {
 it("Тестирование longestWord", function () {
   let expectedResult = 5
   let result = operations.longestWord("1 4444  222 ewq   55555 eq")
+
   if (result !== expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -51,9 +53,17 @@ it("Тестирование longestWord", function () {
 })
 
 
-it("Тестирование longestArray", function () {
-  let expectedResult = [3,5]
-  let result = operations.longestArray([[1,2,3],[3,5],[5]]);
+it("Тестирование greatestNumberArray", function () {
+  let expectedResult = [3,5,5]
+  let result = operations.greatestNumberArray([[1,2,3],[3,5],[5]]);
+
+  if (JSON.stringify(result) !== JSON.stringify(expectedResult)) {
+    throw new Error(
+      `Ожидалось ${expectedResult}, получилось ${result}`
+    )
+  }
+  expectedResult = [5,21,132]
+  result = operations.greatestNumberArray([[1,2,3,3,5,1,3,2],[3,4,3,21,4,6,9,5],[5,3,2,132,1,2,]]);
   if (JSON.stringify(result) !== JSON.stringify(expectedResult)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -65,6 +75,7 @@ it("Тестирование longestArray", function () {
 it("Тестирование stringReduction", function () {
   let expectedResult = "..."
   let result = operations.stringReduction("",5);
+
   if (result !== expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -83,6 +94,7 @@ it("Тестирование stringReduction", function () {
 it("Тестирование wordCapitalLetter", function () {
   let expectedResult = "A Deqw F Sada"
   let result = operations.wordCapitalLetter("a Deqw f sada");
+
   if (result !== expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -101,6 +113,7 @@ it("Тестирование wordCapitalLetter", function () {
 it("Тестирование connectingArrays", function () {
   let expectedResult = [1,3,4,2]
   let result = operations.connectingArrays([3,4],[1,2],1);
+
   if (JSON.stringify(result) !== JSON.stringify(expectedResult)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -119,6 +132,7 @@ it("Тестирование connectingArrays", function () {
 it("Тестирование deletingFalseValues", function () {
   let expectedResult = "qeqw,5,ewqeqe,,eqweqw,,123,,1,,4,,"
   let result = operations.deletingFalseValues(["qeqw",5,"ewqeqe",NaN,"eqweqw","",123,false,1,undefined,4,0,0n]);
+
   if (result != expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -130,6 +144,7 @@ it("Тестирование deletingFalseValues", function () {
 it("Тестирование searchLettersString", function () {
   let expectedResult = false
   let result = operations.searchLettersString(["привет","ы"]);
+
   if (result !== expectedResult) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -148,6 +163,7 @@ it("Тестирование searchLettersString", function () {
 it("Тестирование splittingArray", function () {
   let expectedResult=[[1,2],[3,4],[5,6],[7,8]];
   let result= operations.splittingArray([1,2,3,4,5,6,7,8],2);
+
   if (JSON.stringify(result) !== JSON.stringify(expectedResult)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -159,6 +175,7 @@ it("Тестирование splittingArray", function () {
 it("Тестирование countingWithRecursion", function () {
   let expectedResult = [5,4,3,2,1]
   let result=[];
+
   operations.countingWithRecursion(result,5);
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
@@ -172,9 +189,10 @@ it("Тестирование countingWithRecursion", function () {
 
 
 it("Тестирование sumNumber", function () {
-  let expectedResult = 5;
-  let result = operations.sumNumber(5);
-  if (expectedResult !== result) {
+  let expectedResult = 13;
+  let result = operations.sumNumber(5)(5)(3);
+
+  if (expectedResult !== +result) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
     )
@@ -188,6 +206,7 @@ it("Тестирование sumNumber", function () {
 it("Тестирование myMap", function () {
   let expectedResult = [2,3,4,5];
   let result = operations.myMap((a)=>a+1,[1,2,3,4]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -206,6 +225,7 @@ it("Тестирование myMap", function () {
 it("Тестирование myFilter", function () {
   let expectedResult = [4,5];
   let result = operations.myFilter((a)=>a>3,[1,2,3,4,5]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -224,6 +244,7 @@ it("Тестирование myFilter", function () {
 it("Тестирование myFind", function () {
   let expectedResult = 41;
   let result = operations.myFind((a)=>a>3,[2,2,2,41,5]);
+
   if (expectedResult !== result) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -242,6 +263,7 @@ it("Тестирование myFind", function () {
 it("Тестирование mySome", function () {
   let expectedResult = true;
   let result = operations.mySome((a)=>a>3,["qew","qweqwe",5]);
+
   if (expectedResult !== result) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -260,6 +282,7 @@ it("Тестирование mySome", function () {
 it("Тестирование myEvery", function () {
   let expectedResult = true;
   let result = operations.myEvery((a)=>a>=3,[50,500,10]);
+
   if (expectedResult !== result) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -282,6 +305,7 @@ it("Тестирование myEvery", function () {
 it("Тестирование sumAll", function () {
   let expectedResult = 10;
   let result = operations.sumAll([4,1]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -300,6 +324,7 @@ it("Тестирование sumAll", function () {
 it("Тестирование specialArray", function () {
   let expectedResult = [6,8];
   let result = operations.specialArray([1,2,3,4,5,6],[1,3,4,5,2,8]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -318,6 +343,7 @@ it("Тестирование specialArray", function () {
 it("Тестирование deletingFromArray", function () {
   let expectedResult = [1,,,4,5,6];
   let result = operations.deletingFromArray([1,2,3,4,5,6],2,3);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -336,6 +362,7 @@ it("Тестирование deletingFromArray", function () {
 it("Тестирование searchObjects", function () {
   let expectedResult = [{"apple":1,"bat":2},{"apple":1,"bat":2,"cookie":2}];
   let result = operations.searchObjects([{ "apple": 1, "bat": 2 }, { "apple": 1 },{ "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 });
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${JSON.stringify(expectedResult)}, получилось ${JSON.stringify(result)}`
@@ -347,6 +374,7 @@ it("Тестирование searchObjects", function () {
 it("Тестирование spinalCase", function () {
   let expectedResult = "q-e-w-q-e-q-e-dsasd-fs-df-fasf-s";
   let result = operations.spinalCase("QEWQEQE dsasd fs df-fasf s");
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -365,6 +393,7 @@ it("Тестирование spinalCase", function () {
 it("Тестирование replacementOfWord", function () {
   let expectedResult = "QEWQEQE 123";
   let result = operations.replacementOfWord("QEWQEQE dsasd","dsasd","123");
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -383,6 +412,7 @@ it("Тестирование replacementOfWord", function () {
 it("Тестирование searchForLetters", function () {
   let expectedResult = [64,65];
   let result = operations.searchForLetters("abcf");
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -401,6 +431,7 @@ it("Тестирование searchForLetters", function () {
 it("Тестирование uniqueArray", function () {
   let expectedResult = ['qweqwe','wewqeq',3,1,34];
   let result = operations.uniqueArray(['qweqwe'],['wewqeq',3,1],[34],[34]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -419,6 +450,7 @@ it("Тестирование uniqueArray", function () {
 it("Тестирование replacementSpecialCharacters", function () {
   let expectedResult = "qweqwew eqe &ampqe &lt&gt &apos";
   let result = operations.replacementSpecialCharacters("qweqwew eqe &qe <> '");
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -437,6 +469,7 @@ it("Тестирование replacementSpecialCharacters", function () {
 it("Тестирование summationOfPrimes", function () {
   let expectedResult = 17;
   let result = operations.summationOfPrimes(10);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${expectedResult}, получилось ${result}`
@@ -454,8 +487,8 @@ it("Тестирование summationOfPrimes", function () {
 
 it("Тестирование deleteArr", function () {
   let expectedResult = [,,3,4];
-  let result = operations.deleteArr([1, 2, 3, 4], function(n) {return n >=
-    3;});
+  let result = operations.deleteArr([1, 2, 3, 4], function(n) {return n >= 3;});
+  
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${JSON.stringify(expectedResult)}, получилось ${JSON.stringify(result)}`
@@ -474,6 +507,7 @@ it("Тестирование deleteArr", function () {
 it("Тестирование removingNesting", function () {
   let expectedResult = [1,2,3,4];
   let result = operations.removingNesting([1, [2], [3, [[4]]]]);
+
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${JSON.stringify(expectedResult)}, получилось ${JSON.stringify(result)}`
@@ -485,6 +519,7 @@ it("Тестирование removingNesting", function () {
 it("Тестирование sumArg", function () {
   let expectedResult = 11;
   let result = operations.sumArg(5,6);
+  
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
       `Ожидалось ${JSON.stringify(expectedResult)}, получилось ${JSON.stringify(result)}`
