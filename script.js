@@ -131,7 +131,7 @@ module.exports.searchLettersString = function searchLettersString(arr) {
 возвращает их в виде двумерного массива.*/
 
 module.exports.splittingArray = function splittingArray(arr, num) {
-    let newArr=[];
+    let newArr = [];
 
     while (arr.length > 0) { 
         newArr.push(arr.splice(0, num)); 
@@ -145,7 +145,7 @@ module.exports.splittingArray = function splittingArray(arr, num) {
 
 module.exports.countingWithRecursion = function countingWithRecursion(arr, num) {
 
-    if(num!==0){
+    if(num !== 0){
         arr.push(num);
         countingWithRecursion(arr, --num);
     }
@@ -375,7 +375,7 @@ module.exports.searchForLetters = function searchForLetters(str) {
 
     for(let i = 0; i < end; i++){
 
-        if(lettersArr[i] == end){
+        if(lettersArr[i] === end){
             break;
         }
         else{
@@ -420,23 +420,23 @@ module.exports.replacementSpecialCharacters = function replacementSpecialCharact
 
     for(let i = 0; i < newStr.length; i++){
 
-        if(newStr[i] == "&"){
+        if(newStr[i] === "&"){
             newStr[i] = "&amp";
         }
 
-        else if(newStr[i] == "<"){
+        else if(newStr[i] === "<"){
             newStr[i] = "&lt";
         }
 
-        else if(newStr[i] == ">"){
+        else if(newStr[i] === ">"){
             newStr[i] = "&gt";
         }
 
-        else if(newStr[i] == '"'){
+        else if(newStr[i] === '"'){
             newStr[i] = "&quot";
         }
 
-        else if(newStr[i] == "'"){
+        else if(newStr[i] === "'"){
             newStr[i] = "&apos";
         }
     }
@@ -455,7 +455,7 @@ module.exports.summationOfPrimes = function summationOfPrimes(num) {
 
         for (let j = 2; j < i; j++) { 
 
-          if (i % j == 0) continue nextPrime; 
+          if (i % j === 0) continue nextPrime; 
         }
         arrNum.push(i);
     }
@@ -489,7 +489,7 @@ module.exports.removingNesting = function removingNesting(arr, newArr = []) {
 
     for (let elem of arr) {
 
-		if (typeof elem == 'object') {
+		if (typeof elem === 'object') {
 			removingNesting(elem, newArr);
 		} 
         else {
@@ -506,7 +506,7 @@ module.exports.removingNesting = function removingNesting(arr, newArr = []) {
 
 module.exports.sumArg = function sumArg(numA, numB) {
 
-    if(numB == undefined){
+    if(numB === undefined){
 
         return function (numB) {
 
