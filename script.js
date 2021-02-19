@@ -366,10 +366,9 @@ undefined.*/
 module.exports.searchForLetters = function searchForLetters(str) {
     let lettersArr = str.split("").sort();
     let newArr = [];
-    const numberUnicode = 36;
 
     for(let i = 0; i < lettersArr.length; i++){
-        lettersArr[i] = lettersArr[i].charCodeAt() - numberUnicode;
+        lettersArr[i] = lettersArr[i].charCodeAt();
     }
     let end = lettersArr[lettersArr.length - 1];
 
@@ -390,7 +389,7 @@ module.exports.searchForLetters = function searchForLetters(str) {
         }
     }
 
-    return !!newArr.length ? newArr : undefined;
+    return !!newArr.length ? String.fromCharCode(...newArr) : undefined;
 }
 
 /*Функция принимает два или более массивов и возвращает новый

@@ -410,7 +410,7 @@ it("Тестирование replacementOfWord", function () {
 
 
 it("Тестирование searchForLetters", function () {
-  let expectedResult = [64,65];
+  let expectedResult = "de";
   let result = operations.searchForLetters("abcf");
 
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
@@ -418,7 +418,7 @@ it("Тестирование searchForLetters", function () {
       `Ожидалось ${expectedResult}, получилось ${result}`
     )
   }
-  expectedResult = [62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85];
+  expectedResult = "bcdefghijklmnopqrstuvwxy";
   result = operations.searchForLetters("az");
   if (JSON.stringify(expectedResult) !== JSON.stringify(result)) {
     throw new Error(
